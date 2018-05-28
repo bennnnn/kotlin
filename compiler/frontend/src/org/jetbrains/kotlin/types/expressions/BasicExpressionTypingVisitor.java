@@ -1306,7 +1306,7 @@ public class BasicExpressionTypingVisitor extends ExpressionTypingVisitor {
             type = TypeUtils.makeNotNullable(type);
         }
         if (context.contextDependency == DEPENDENT) {
-            return TypeInfoFactoryKt.createTypeInfo(type, dataFlowInfo);
+            return TypeInfoFactoryKt.createTypeInfo(type, dataFlowInfo, loopBreakContinuePossible, context.dataFlowInfo);
         }
 
         // If break or continue was possible, take condition check info as the jump info
